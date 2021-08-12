@@ -41,3 +41,17 @@ app.on('window-all-closed', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+const {ipcMain, dialog} = require('electron')
+
+ipcMain.on('open-information-dialog', (event) => {
+  const options = {
+    type: 'info',
+    title: 'Information',
+    message: "This is an information dialog. Isn't it nice?",
+    buttons: ['Yes', 'No']
+  }
+  dialog.showMessageBox(options, (index) => {
+    event.sender.send('information-dialog-selection', index)
+  })
+})

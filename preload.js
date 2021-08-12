@@ -10,3 +10,12 @@ window.addEventListener('DOMContentLoaded', () => {
     replaceText(`${type}-version`, process.versions[type])
   }
 })
+
+const { contextBridge, ipcRenderer } = require('electron')
+
+contextBridge.exposeInMainWorld(
+  'ipc',
+  {
+    sendShowDialogMessage: () => ipcRenderer.send('open-information-dialog')
+  }
+)
