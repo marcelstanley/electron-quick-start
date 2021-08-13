@@ -20,3 +20,11 @@ ipcRenderer.on('information-dialog-selection', (event, index) => {
   document.getElementById('info-selection').innerHTML = message
 })
 */
+
+function showHelloWorld() {
+  document.getElementById("helloworld").innerHTML = "Hello World";
+}
+//document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('clickme')
+    .addEventListener('click', showHelloWorld);
+//});
