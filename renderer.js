@@ -18,4 +18,3 @@ function showHelloWorld() {
 
 document.getElementById('showHWBtn')
     .addEventListener('click', showHelloWorld);
-//});
