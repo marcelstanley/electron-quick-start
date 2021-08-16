@@ -13,9 +13,9 @@ informationBtn.addEventListener('click', (event) => {
 })
 
 function showHelloWorld() {
-  document.getElementById("helloworld").innerHTML = "Hello World";
+  document.getElementById("helloworld").innerHTML = "Hello World!";
 }
-//document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('clickme')
+
+document.getElementById('showHWBtn')
     .addEventListener('click', showHelloWorld);
 //});
