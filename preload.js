@@ -12,9 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 const { contextBridge, ipcRenderer } = require('electron')
-
-contextBridge.exposeInMainWorld(
-  'ipc',
+contextBridge.exposeInMainWorld('ipc',
   {
     sendShowDialogMessage: () => ipcRenderer.send('open-information-dialog')
   }
