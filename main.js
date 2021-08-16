@@ -42,6 +42,24 @@ app.on('window-all-closed', function () {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
+const zlib = require('zlib')
+
+function testBrotli(text) {
+  console.log("Original: ", text);
+
+  console.log("//////////////////////////////////////");
+  console.log(">> Test from main <<<");
+  text = zlib.brotliCompressSync(text);
+  console.log("Compressed: ", text.toString('base64'));
+
+  text = zlib.brotliDecompressSync(text);
+  console.log("Uncompressed: ", text.toString('utf-8'));
+  console.log("//////////////////////////////////////");
+}
+
+var text = "Mussum Ipsum, cacilds vidis litro abertis."
+testBrotli(text)
+
 const {ipcMain, dialog} = require('electron')
 
 ipcMain.on('open-information-dialog', (event) => {

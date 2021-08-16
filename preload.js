@@ -17,3 +17,11 @@ contextBridge.exposeInMainWorld('ipc',
     sendShowDialogMessage: () => ipcRenderer.send('open-information-dialog')
   }
 )
+
+const zlib = require('zlib')
+contextBridge.exposeInMainWorld('brotli',
+  {
+    compress: (text) => zlib.brotliCompressSync(text),
+    decompress: (text) => zlib.brotliDecompressSync(text)
+  }
+)
